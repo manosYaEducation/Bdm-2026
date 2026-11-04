@@ -1,0 +1,126 @@
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #0a0a0a;
+    background-image: linear-gradient(rgba(10,10,10,0.48), rgba(10,10,10,0.66)), url('../img/BackGround.png');
+    background-attachment: scroll;
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: repeat-y;
+    color: #f5f5f5;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-bebas { font-family: 'Bebas Neue', cursive; }
+
+  /* Hero */
+  .hero-bg {
+    background-image: linear-gradient(90deg, rgba(10,10,10,0.82) 0%, rgba(10,10,10,0.48) 46%, rgba(10,10,10,0.78) 100%), url('../img/Hero.png');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(168,28,36,0.28) 0%, transparent 65%);
+  }
+
+  /* About image */
+  .about-photo {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .champion-logo {
+    display: block;
+    width: min(210px, 90%);
+    max-height: 112px;
+    object-fit: contain;
+    margin: 0 auto 0.75rem;
+    filter: drop-shadow(0 14px 24px rgba(0,0,0,0.45));
+  }
+
+  /* Local event gallery */
+  .gallery-carousel-shell { position: relative; padding: 0 3rem; }
+  .gallery-carousel-track { display: flex; gap: 1rem; overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-inline: contain; }
+  .gallery-carousel-track::-webkit-scrollbar { display: none; }
+  .gallery-photo { position: relative; flex: 0 0 calc((100% - 2rem) / 3); min-width: calc((100% - 2rem) / 3); aspect-ratio: 4 / 5; overflow: hidden; background: #111; border: 1px solid #242424; cursor: zoom-in; scroll-snap-align: start; }
+  .gallery-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease, filter .45s ease; }
+  .gallery-photo:hover img { transform: scale(1.045); filter: brightness(.78); }
+  .gallery-carousel-arrow { position: absolute; top: 50%; z-index: 3; width: 2.5rem; height: 3.5rem; transform: translateY(-50%); border: 1px solid #333; background: rgba(10,10,10,.9); color: #fff; font-size: 1.5rem; transition: background .2s ease, border-color .2s ease; }
+  .gallery-carousel-arrow:hover { background: #a81c24; border-color: #a81c24; }
+  .gallery-carousel-prev { left: 0; }
+  .gallery-carousel-next { right: 0; }
+  .gallery-lightbox { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 4rem; background: rgba(0,0,0,.94); }
+  .gallery-lightbox.open { display: flex; }
+  .gallery-lightbox img { max-width: min(100%, 1100px); max-height: 88vh; object-fit: contain; }
+  .gallery-close, .gallery-prev, .gallery-next { position: absolute; z-index: 2; color: #fff; transition: color .2s ease; }
+  .gallery-close:hover, .gallery-prev:hover, .gallery-next:hover { color: #a81c24; }
+  .gallery-close { top: 1rem; right: 1.5rem; font-size: 2.5rem; }
+  .gallery-prev, .gallery-next { top: 50%; transform: translateY(-50%); padding: 1rem; font-size: 2rem; }
+  .gallery-prev { left: 1rem; }
+  .gallery-next { right: 1rem; }
+  @media (min-width: 1024px) { .gallery-photo { flex-basis: calc((100% - 3rem) / 4); min-width: calc((100% - 3rem) / 4); } }
+  @media (max-width: 767px) { .gallery-carousel-shell { padding: 0 2.5rem; } .gallery-photo { flex-basis: 78%; min-width: 78%; } }
+  @media (max-width: 640px) { .gallery-lightbox { padding: 4rem 1rem; } .gallery-prev { left: 0; } .gallery-next { right: 0; } }
+
+  /* Scroll fade-in */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-left.visible { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal-right.visible { opacity: 1; transform: translateX(0); }
+  .reveal-scale { opacity: 0; transform: scale(0.88); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+  /* Header scroll effect */
+  header.scrolled { background: rgba(10,10,10,0.95) !important; backdrop-filter: blur(12px); }
+
+  /* Value card hover */
+  .value-card { transition: all 0.3s ease; }
+  .value-card:hover { background: #a81c24; border-color: #a81c24; color: #0a0a0a; }
+  .value-card:hover .card-icon { color: #0a0a0a; }
+
+  /* Event card hover */
+  .event-card { transition: transform 0.3s ease, border-color 0.3s ease; }
+  .event-card:hover { transform: translateY(-8px); border-color: #a81c24; }
+
+  /* Champion card flip */
+  .flip-card { perspective: 1000px; }
+  .flip-inner { position: relative; transform-style: preserve-3d; transition: transform 0.6s ease; height: 100%; }
+  .flip-card:hover .flip-inner { transform: rotateY(180deg); }
+  .flip-front, .flip-back {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .flip-back { transform: rotateY(180deg); }
+
+  /* Stat counter glow */
+  .stat-num { text-shadow: 0 0 20px rgba(168,28,36,0.5); }
+
+  /* Tab buttons */
+  .tab-btn.active { background: #a81c24; color: #0a0a0a; }
+  .tab-btn.inactive { background: #0a0a0a; border: 1px solid #a81c24; color: #a81c24; }
+  .tab-btn.inactive:hover { background: #a81c24; color: #0a0a0a; }
+
+  /* Mobile menu */
+  #mobile-menu { display: none; }
+  #mobile-menu.open { display: flex; }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #0a0a0a; }
+  ::-webkit-scrollbar-thumb { background: #a81c24; border-radius: 2px; }
+
+  /* Red accent line */
+  .red-line { width: 80px; height: 4px; background: #a81c24; }
+
+  /* Video modal - not relying on Tailwind CDN for display:flex */
+  #video-modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
+  #video-modal.modal-open { display: flex; }

@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Batalla de Maestros | BDM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'bdm-red': '#a81c24',
+        'bdm-black': '#0a0a0a',
+        'bdm-dark': '#1a1a1a',
+        'bdm-white': '#f5f5f5',
+      },
+      fontFamily: {
+        bebas: ['"Bebas Neue"', 'cursive'],
+        sans: ['Montserrat', 'sans-serif'],
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 30s linear infinite',
+        fadeUp: 'fadeUp 0.8s ease forwards',
+      },
+    },
+  },
+}
+</script>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body class="bg-bdm-black text-bdm-white">
+
+<!-- HEADER -->
+<header id="site-header" class="fixed top-0 w-full z-50 transition-all duration-300 py-5 bg-transparent">
+    <div class="w-full flex items-center px-6">
+      <a href="#home" class="mr-auto font-bebas text-3xl tracking-wider"><span class="text-white">BDM</span> <span class="text-bdm-red">MAESTROS</span></a>
+      <nav class="hidden md:flex gap-5 items-center">
+      <a href="#home" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Inicio</a>
+      <a href="#about" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Historia</a>
+      <a href="#services" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Servicios</a>
+      <a href="#global-impact" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Impacto</a>
+      <a href="#events" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Eventos</a>
+      <a href="#gallery" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Galería</a>
+      <a href="#contact" class="px-5 py-2 border border-white text-white hover:bg-white hover:text-bdm-black transition-colors uppercase text-xs font-semibold">Contacto</a>
+    </nav>
+    <button id="menu-toggle" class="md:hidden text-white">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+    </button>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="flex-col bg-bdm-black/95 px-6 py-4 gap-4 border-t border-bdm-dark">
+    <a href="#home" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Inicio</a>
+    <a href="#about" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Historia</a>
+    <a href="#services" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Servicios</a>
+    <a href="#global-impact" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Impacto</a>
+    <a href="#events" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Eventos</a>
+    <a href="#gallery" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Galería</a>
+    <a href="#contact" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-bdm-red">Contacto</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero-bg relative h-screen flex items-center justify-center overflow-hidden">
+  <!-- Decorative elements -->
+  <div class="absolute inset-0 overflow-hidden">
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-bdm-red/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/3 right-1/4 w-96 h-96 bg-bdm-red/8 rounded-full blur-3xl"></div>
+    <!-- Microphone SVG silhouette -->
+    <svg class="absolute right-10 top-1/2 -translate-y-1/2 opacity-5 hidden lg:block" width="300" height="400" viewBox="0 0 300 400" fill="white">
+      <rect x="120" y="20" width="60" height="120" rx="30"/>
+      <path d="M80 130 Q80 220 150 220 Q220 220 220 130" stroke="white" stroke-width="12" fill="none"/>
+      <rect x="140" y="220" width="20" height="80"/>
+      <rect x="100" y="300" width="100" height="12" rx="6"/>
+    </svg>
+  </div>
+
+  <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
+    <p class="reveal text-white uppercase tracking-[0.3em] font-semibold mb-4 text-sm md:text-base">
+      La red mundial de freestyle, arte urbano y desarrollo cultural nacida en Chile.
+    </p>
+    <h1 class="reveal font-bebas tracking-wider text-6xl md:text-9xl mb-6" style="text-shadow: 0 0 60px rgba(168,28,36,0.3);">
+      BATALLA DE<br/><span class="text-bdm-red">MAESTROS</span>
+    </h1>
+    <p class="reveal text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 bg-black/30 backdrop-blur-sm p-4 rounded-lg">
+      Más de 14 años impulsando talentos, conectando comunidades y llevando el freestyle desde los barrios hasta escenarios internacionales.
+    </p>
+    <div class="reveal flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#contact" class="bg-bdm-red text-white px-8 py-4 uppercase font-bold tracking-widest hover:bg-white hover:text-bdm-black transition-colors duration-300 text-sm">Solicitar Información</a>
+      <a href="#events" class="border border-white text-white px-8 py-4 uppercase font-bold tracking-widest hover:bg-white hover:text-bdm-black transition-colors duration-300 text-sm">Ver Eventos</a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+    <span class="text-xs uppercase tracking-widest text-gray-400">Scroll</span>
+    <div class="w-px h-12 bg-gradient-to-b from-bdm-red to-transparent"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+      <!-- Image -->
+      <div class="w-full lg:w-1/2 reveal-left">
+        <div class="relative max-w-md mx-auto" style="aspect-ratio:4/5;">
+          <div class="absolute inset-0 bg-bdm-red translate-x-4 translate-y-4"></div>
+          <img
+            src="assets/img/About.png"
+            alt="Freestyler de BDM en escenario"
+            class="about-photo relative z-10 w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+          >
+          <div class="absolute -top-6 -left-6 w-24 h-24 border-t-2 border-l-2 border-bdm-red z-20"></div>
+          <div class="absolute -bottom-6 -right-6 w-24 h-24 border-b-2 border-r-2 border-bdm-red z-20"></div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="w-full lg:w-1/2 reveal-right">
+        <h2 class="font-bebas text-5xl md:text-7xl text-white mb-6 uppercase">Del barrio al <span class="text-bdm-red">mundo</span></h2>
+        <div class="red-line mb-8"></div>
+        <div class="space-y-6 text-gray-400 text-lg">
+          <p>Batalla de Maestros nació en los sectores populares del sur de Santiago de Chile.</p>
+          <p>Con el paso de los años evolucionó desde competencias locales hacia un circuito internacional presente en más de 20 países, culminando en el campeonato mundial <strong class="text-white">BDM Deluxe</strong>.</p>
+          <p>La organización desarrolla competencias, formación artística, actividades culturales y espacios de desarrollo para jóvenes talentos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / VALORES -->
+<section id="services" class="py-24 border-t border-bdm-dark">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Mission / Vision -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <div class="reveal p-8 border border-bdm-dark bg-white/5 hover:border-bdm-red transition-colors duration-500">
+        <h3 class="font-bebas text-3xl text-bdm-red mb-3">Nuestra Misión</h3>
+        <p class="text-gray-400 leading-relaxed">Crear oportunidades para artistas y jóvenes de cualquier origen mediante herramientas artísticas, educativas y de networking.</p>
+      </div>
+      <div class="reveal p-8 border border-bdm-dark bg-white/5 hover:border-bdm-red transition-colors duration-500">
+        <h3 class="font-bebas text-3xl text-bdm-red mb-3">Nuestra Visión</h3>
+        <p class="text-gray-400 leading-relaxed">Consolidar una red internacional de desarrollo cultural basada en el talento, el respeto, la diversidad y la excelencia.</p>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="text-center mb-10">
+      <h2 class="reveal font-bebas text-4xl md:text-5xl text-white mb-6">LO QUE <span class="text-bdm-red">SOMOS</span></h2>
+      <div class="flex justify-center gap-4 mb-8">
+        <button onclick="showTab('valores')" id="btn-valores" class="tab-btn active px-6 py-2 uppercase tracking-widest text-sm font-bold transition-all duration-300">Nuestros Valores</button>
+        <button onclick="showTab('servicios')" id="btn-servicios" class="tab-btn inactive px-6 py-2 uppercase tracking-widest text-sm font-bold transition-all duration-300">Nuestros Servicios</button>
+      </div>
+    </div>
+
+    <!-- Valores -->
+    <div id="tab-valores" class="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <!-- 8 value cards -->
+      <div class="value-card reveal-scale flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 text-gray-300 cursor-default">
+        <div class="card-icon mb-3 text-bdm-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg>
+        </div>
+        <span class="font-bebas tracking-wider text-xl uppercase">Respeto</span>
+      </div>
+      <div class="value-card reveal-scale flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 text-gray-300 cursor-default">
+        <div class="card-icon mb-3 text-bdm-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></svg>
+        </div>
+        <span class="font-bebas tracking-wider text-xl uppercase">Trabajo</span>
+      </div>
+      <div class="value-card reveal-scale flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 text-gray-300 cursor-default">
+        <div class="card-icon mb-3 text-bdm-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></svg>
+        </div>
+        <span class="font-bebas tracking-wider text-xl uppercase">Talento</span>
+      </div>
+      <div class="value-card reveal-scale flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 text-gray-300 cursor-default">
+        <div class="card-icon mb-3 text-bdm-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.414 14.414C21 12.828 22 11.5 22 9.5a5.5 5.5 0 0 0-9.591-3.676.6.6 0 0 1-.818.001A5.5 5.5 0 0 0 2 9.5c0 2.3 1.5 4 3 5.5l5.535 5.362a2 2 0 0 0 2.879.052 2.12 2.12 0 0 0-.004-3 2.124 2.124 0 1 0 3-3 2.124 2.124 0 0 0 3.004 0 2 2 0 0 0 0-2.828l-1.881-1.882a2.41 2.41 0 0 0-3.409 0l-1.71 1.71a2 2 0 0 1-2.828 0 2 2 0 0 1 0-2.828l2.823-2.762"/></svg>
+        </div>
+        <span class="font-bebas tracking-wider text-xl uppercase">Inclusión</span>
+      </div>
+      <div class="value-card reveal-scale flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 text-gray-300 cursor-default">
+        <div class="card-icon mb-3 text-bdm-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <span class="font-bebas tracking-wider text-xl uppercase">Diversidad</span>
+      </div>
+      <div class="value-card reveal-scale flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 text-gray-300 cursor-default">
+        <div class="card-icon mb-3 text-bdm-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <span class="font-bebas tracking-wider text-xl uppercase">Cultura</span>
+      </div>
+      <div class="value-card reveal-scale flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 text-gray-300 cursor-default">
+        <div class="card-icon mb-3 text-bdm-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a1 1 0 0 1 .4-.8A6 6 0 0 1 8 2c3 0 5 2 7.333 2q2 0 3.067-.8A1 1 0 0 1 20 4v10a1 1 0 0 1-.4.8A6 6 0 0 1 16 16c-3 0-5-2-8-2a6 6 0 0 0-4 1.528"/></svg>
+        </div>
+        <span class="font-bebas tracking-wider text-xl uppercase">Liderazgo</span>
+      </div>
+      <div class="value-card reveal-scale flex flex-col items-center justify-center p-6 bg-white/5 border border-white/10 text-gray-300 cursor-default">
+        <div class="card-icon mb-3 text-bdm-red">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        </div>
+        <span class="font-bebas tracking-wider text-xl uppercase text-center leading-tight">Desarrollo Social</span>
+      </div>
+    </div>
+
+    <!-- Servicios (hidden by default) -->
+    <div id="tab-servicios" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="p-6 border border-bdm-dark bg-white/5 hover:border-bdm-red transition-colors">
+        <div class="text-bdm-red mb-3"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+        <h3 class="font-bebas text-2xl text-white mb-2">Eventos Licenciados</h3>
+        <p class="text-gray-400 text-sm">Adquiere los derechos oficiales de los eventos BDM para tu ciudad o institución.</p>
+      </div>
+      <div class="p-6 border border-bdm-dark bg-white/5 hover:border-bdm-red transition-colors">
+        <div class="text-bdm-red mb-3"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"/></svg></div>
+        <h3 class="font-bebas text-2xl text-white mb-2">Formación Artística</h3>
+        <p class="text-gray-400 text-sm">Talleres y programas de desarrollo para jóvenes talentos del freestyle y cultura urbana.</p>
+      </div>
+      <div class="p-6 border border-bdm-dark bg-white/5 hover:border-bdm-red transition-colors">
+        <div class="text-bdm-red mb-3"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg></div>
+        <h3 class="font-bebas text-2xl text-white mb-2">Red Internacional</h3>
+        <p class="text-gray-400 text-sm">Conexión con más de 20 países y circuito internacional de clasificación hacia el Campeonato Mundial.</p>
+      </div>
+      <div class="p-6 border border-bdm-dark bg-white/5 hover:border-bdm-red transition-colors">
+        <div class="text-bdm-red mb-3"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div>
+        <h3 class="font-bebas text-2xl text-white mb-2">Producción Audiovisual</h3>
+        <p class="text-gray-400 text-sm">Cobertura, transmisión en vivo y producción de contenido para los eventos de la red BDM.</p>
+      </div>
+      <div class="p-6 border border-bdm-dark bg-white/5 hover:border-bdm-red transition-colors">
+        <div class="text-bdm-red mb-3"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3 class="font-bebas text-2xl text-white mb-2">Desarrollo Comunitario</h3>
+        <p class="text-gray-400 text-sm">Programas sociales y culturales para comunidades, municipios e instituciones educativas.</p>
+      </div>
+      <div class="p-6 border border-bdm-dark bg-white/5 hover:border-bdm-red transition-colors">
+        <div class="text-bdm-red mb-3"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 class="font-bebas text-2xl text-white mb-2">Turismo Cultural</h3>
+        <p class="text-gray-400 text-sm">Activación de turismo y posicionamiento de ciudades a través de eventos de cultura urbana de alto impacto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMINO DEL CAMPEÓN -->
+<section class="py-24 relative overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-bdm-red/5 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="reveal font-bebas text-4xl md:text-6xl text-white mb-4 uppercase">El camino del <span class="text-bdm-red">Campeón</span></h2>
+      <div class="red-line mx-auto"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Card 1: Regional -->
+      <div class="reveal flip-card rounded-2xl" style="min-height:380px;">
+        <div class="flip-inner rounded-2xl">
+          <div class="flip-front bg-white/5 border border-bdm-red/30 rounded-2xl flex flex-col h-full">
+            <div class="h-44 flex items-center justify-center p-6 border-b border-bdm-red/20 rounded-t-2xl">
+              <div class="text-center">
+                <img src="assets/img/BDM-regional.png" alt="BDM Regional" class="champion-logo">
+                <div class="font-bebas text-xl text-white tracking-widest">REGIONAL</div>
+                <div class="w-12 h-1 bg-bdm-red mx-auto mt-2"></div>
+              </div>
+            </div>
+            <div class="p-6 flex-grow">
+              <span class="text-bdm-red font-bold uppercase tracking-widest text-xs block mb-2">Etapa 1</span>
+              <h3 class="font-bebas text-2xl text-white mb-4 tracking-wider">Circuito Regional</h3>
+              <ul class="space-y-3">
+                <li class="text-gray-300 text-sm flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bdm-red shrink-0 mt-2"></span>Batallas locales</li>
+                <li class="text-gray-300 text-sm flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bdm-red shrink-0 mt-2"></span>Clasificatorias regionales</li>
+                <li class="text-gray-300 text-sm flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bdm-red shrink-0 mt-2"></span>Formación de nuevos talentos</li>
+              </ul>
+            </div>
+            <button class="w-full py-3 text-xs font-bold uppercase tracking-wider text-bdm-red bg-bdm-black border-t border-bdm-red/30 hover:bg-bdm-red hover:text-white transition-colors rounded-b-2xl">Ver más</button>
+          </div>
+          <div class="flip-back bg-bdm-black/90 border border-bdm-red/40 rounded-2xl flex flex-col items-center justify-center p-8 h-full">
+            <h3 class="font-bebas text-xl text-white mb-4 uppercase tracking-wider">Circuito Regional</h3>
+            <p class="text-gray-300 text-sm leading-relaxed text-center">El Circuito Regional es la puerta de entrada al mundo BDM. Aquí los talentos locales compiten en batallas de freestyle y beatbox, clasificando a instancias superiores. Es la base de la pirámide competitiva donde se forjan los futuros campeones.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: BDM Gold -->
+      <div class="reveal flip-card rounded-2xl" style="min-height:380px;">
+        <div class="flip-inner rounded-2xl">
+          <div class="flip-front bg-white/5 border border-bdm-red/30 rounded-2xl flex flex-col h-full">
+            <div class="h-44 flex items-center justify-center p-6 border-b border-bdm-red/20 rounded-t-2xl">
+              <div class="text-center">
+                <img src="assets/img/BDM-gold.png" alt="BDM Gold" class="champion-logo">
+                <div class="font-bebas text-xl text-white tracking-widest">BDM GOLD</div>
+                <div class="w-12 h-1 bg-yellow-500 mx-auto mt-2"></div>
+              </div>
+            </div>
+            <div class="p-6 flex-grow">
+              <span class="text-bdm-red font-bold uppercase tracking-widest text-xs block mb-2">Etapa 2</span>
+              <h3 class="font-bebas text-2xl text-white mb-4 tracking-wider">BDM Gold</h3>
+              <ul class="space-y-3">
+                <li class="text-gray-300 text-sm flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bdm-red shrink-0 mt-2"></span>Final Nacional</li>
+                <li class="text-gray-300 text-sm flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bdm-red shrink-0 mt-2"></span>Campeones regionales</li>
+                <li class="text-gray-300 text-sm flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bdm-red shrink-0 mt-2"></span>Clasificación internacional</li>
+              </ul>
+            </div>
+            <button class="w-full py-3 text-xs font-bold uppercase tracking-wider text-bdm-red bg-bdm-black border-t border-bdm-red/30 hover:bg-bdm-red hover:text-white transition-colors rounded-b-2xl">Ver más</button>
+          </div>
+          <div class="flip-back bg-bdm-black/90 border border-bdm-red/40 rounded-2xl flex flex-col items-center justify-center p-8 h-full">
+            <h3 class="font-bebas text-xl text-white mb-4 uppercase tracking-wider">BDM Gold</h3>
+            <p class="text-gray-300 text-sm leading-relaxed text-center">BDM Gold reúne a los mejores campeones regionales en una final nacional de alto nivel. Los ganadores obtienen su pase al circuito internacional, representando a su país en el escenario global de BDM.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: BDM Deluxe -->
+      <div class="reveal flip-card rounded-2xl" style="min-height:380px;">
+        <div class="flip-inner rounded-2xl">
+          <div class="flip-front bg-white/5 border border-bdm-red/30 rounded-2xl flex flex-col h-full">
+            <div class="h-44 flex items-center justify-center p-6 border-b border-bdm-red/20 rounded-t-2xl">
+              <div class="text-center">
+                <img src="assets/img/BDM-deluxe.png" alt="BDM Deluxe" class="champion-logo">
+                <div class="font-bebas text-xl text-white tracking-widest">BDM DELUXE</div>
+                <div class="w-12 h-1 bg-bdm-red mx-auto mt-2"></div>
+              </div>
+            </div>
+            <div class="p-6 flex-grow">
+              <span class="text-bdm-red font-bold uppercase tracking-widest text-xs block mb-2">Etapa 3</span>
+              <h3 class="font-bebas text-2xl text-white mb-4 tracking-wider">BDM Deluxe</h3>
+              <ul class="space-y-3">
+                <li class="text-gray-300 text-sm flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bdm-red shrink-0 mt-2"></span>Campeonato Mundial</li>
+                <li class="text-gray-300 text-sm flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bdm-red shrink-0 mt-2"></span>Representantes de más de 20 países</li>
+                <li class="text-gray-300 text-sm flex items-start gap-2"><span class="w-1.5 h-1.5 rounded-full bg-bdm-red shrink-0 mt-2"></span>Reconocimiento internacional</li>
+              </ul>
+            </div>
+            <button class="w-full py-3 text-xs font-bold uppercase tracking-wider text-bdm-red bg-bdm-black border-t border-bdm-red/30 hover:bg-bdm-red hover:text-white transition-colors rounded-b-2xl">Ver más</button>
+          </div>
+          <div class="flip-back bg-bdm-black/90 border border-bdm-red/40 rounded-2xl flex flex-col items-center justify-center p-8 h-full">
+            <h3 class="font-bebas text-xl text-white mb-4 uppercase tracking-wider">BDM Deluxe</h3>
+            <p class="text-gray-300 text-sm leading-relaxed text-center">BDM Deluxe es la cumbre del campeonato. Los mejores competidores de más de 20 países se enfrentan en una final mundial que otorga reconocimiento internacional y consagra al campeón absoluto de BDM.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL IMPACT -->
+<section id="global-impact" class="py-24 border-y border-bdm-dark">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-10">
+      <h2 class="reveal font-bebas text-4xl md:text-5xl text-white mb-6">NUESTRO <span class="text-bdm-red">ALCANCE</span></h2>
+      <div class="flex justify-center gap-4 mb-8">
+        <button onclick="showImpact('global')" id="btn-global" class="tab-btn active px-6 py-2 uppercase tracking-widest text-sm font-bold transition-all">Impacto Global</button>
+        <button onclick="showImpact('chile')" id="btn-chile" class="tab-btn inactive px-6 py-2 uppercase tracking-widest text-sm font-bold transition-all">Impacto en Chile</button>
+      </div>
+    </div>
+
+    <!-- Global stats -->
+    <div id="impact-global" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+      <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="500">0</span><span class="font-bebas text-2xl text-bdm-red">+</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Eventos Reg.</p>
+      </div>
+      <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="150">0</span><span class="font-bebas text-2xl text-bdm-red">+</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Ciudades</p>
+      </div>
+      <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="50">0</span><span class="font-bebas text-2xl text-bdm-red">k</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Participantes</p>
+      </div>
+      <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="14">0</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Campeones Nac.</p>
+      </div>
+      <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="4">0</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Continentes</p>
+      </div>
+      <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="14">0</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Final Mundial</p>
+      </div>
+      <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="200">0</span><span class="font-bebas text-2xl text-bdm-red">M</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Millones Views</p>
+      </div>
+    </div>
+
+    <!-- Chile stats (hidden) -->
+    <div id="impact-chile" class="hidden grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="font-bebas text-3xl md:text-4xl text-bdm-red mb-1">16</span><span class="font-bebas text-2xl text-bdm-red">+</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Regiones</p>
+      </div>
+      <div class="flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="font-bebas text-3xl md:text-4xl text-bdm-red mb-1">80</span><span class="font-bebas text-2xl text-bdm-red">+</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Comunas</p>
+      </div>
+      <div class="flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="font-bebas text-3xl md:text-4xl text-bdm-red mb-1">14</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Años de historia</p>
+      </div>
+      <div class="flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
+        <span class="font-bebas text-3xl md:text-4xl text-bdm-red mb-1">1</span>
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Campeonato nacional</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTOS -->
+<section id="events" class="py-24 border-t border-bdm-dark">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="reveal font-bebas text-4xl md:text-6xl text-white mb-4 uppercase">Eventos <span class="text-bdm-red">Disponibles</span></h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-lg">Adquiere los derechos de los eventos oficiales de la marca BDM para tu ciudad o institución.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+
+      <!-- Zonal Beatbox -->
+      <div class="event-card reveal flex flex-col bg-white/5 border border-bdm-dark rounded-2xl min-h-80 overflow-hidden">
+        <div class="flex flex-col p-5 flex-grow">
+          <h3 class="font-bebas text-xl mb-1 uppercase">Zonal Beatbox</h3>
+          <p class="font-bold mb-2 text-lg text-bdm-red">$3.000.000</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <div class="space-y-2 flex-grow">
+            <div class="flex items-center gap-2 text-xs text-gray-300">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>
+              300 – 500 personas
+            </div>
+            <div class="flex items-center gap-2 text-xs text-gray-300">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              16 competidores
+            </div>
+            <div class="flex items-center gap-2 text-xs text-gray-300">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+              Local / Zonal
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="w-full py-3 text-xs font-bold uppercase tracking-wider text-center text-bdm-red bg-bdm-black border-t border-bdm-red/30 hover:bg-bdm-red hover:text-white transition-colors flex items-center justify-center gap-1">
+          Contáctanos <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Selectivo Zonal -->
+      <div class="event-card reveal flex flex-col bg-white/5 border border-bdm-dark rounded-2xl min-h-80 overflow-hidden">
+        <div class="flex flex-col p-5 flex-grow">
+          <h3 class="font-bebas text-xl mb-1 uppercase leading-tight">Selectivo Zonal Freestyle</h3>
+          <p class="font-bold mb-2 text-lg text-bdm-red">$5.000.000</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <div class="space-y-2 flex-grow">
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>500 – 1.000 personas</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>32 competidores</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Local / Zonal</div>
+          </div>
+        </div>
+        <a href="#contact" class="w-full py-3 text-xs font-bold uppercase tracking-wider text-center text-bdm-red bg-bdm-black border-t border-bdm-red/30 hover:bg-bdm-red hover:text-white transition-colors flex items-center justify-center gap-1">Contáctanos <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Final Regional -->
+      <div class="event-card reveal flex flex-col bg-white/5 border border-bdm-dark rounded-2xl min-h-80 overflow-hidden">
+        <div class="flex flex-col p-5 flex-grow">
+          <h3 class="font-bebas text-xl mb-1 uppercase">Final Regional</h3>
+          <p class="font-bold mb-2 text-lg text-bdm-red">$7.000.000</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <div class="space-y-2 flex-grow">
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>1.000 – 2.000 personas</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>16 campeones zonales</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Regional</div>
+          </div>
+        </div>
+        <a href="#contact" class="w-full py-3 text-xs font-bold uppercase tracking-wider text-center text-bdm-red bg-bdm-black border-t border-bdm-red/30 hover:bg-bdm-red hover:text-white transition-colors flex items-center justify-center gap-1">Contáctanos <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Final Nacional BDM Gold -->
+      <div class="event-card reveal flex flex-col bg-white/5 border border-bdm-dark rounded-2xl min-h-80 overflow-hidden">
+        <div class="flex flex-col p-5 flex-grow">
+          <h3 class="font-bebas text-xl mb-1 uppercase leading-tight">Final Nacional BDM Gold</h3>
+          <p class="font-bold mb-2 text-lg text-bdm-red">$9.000.000</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <div class="space-y-2 flex-grow">
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>3.000 – 5.000 personas</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>16 campeones regionales</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Nacional + Intl.</div>
+          </div>
+        </div>
+        <a href="#contact" class="w-full py-3 text-xs font-bold uppercase tracking-wider text-center text-bdm-red bg-bdm-black border-t border-bdm-red/30 hover:bg-bdm-red hover:text-white transition-colors flex items-center justify-center gap-1">Contáctanos <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <!-- Final Mundial BDM Deluxe -->
+      <div class="event-card reveal flex flex-col bg-white/5 border border-bdm-dark rounded-2xl min-h-80 overflow-hidden">
+        <div class="flex flex-col p-5 flex-grow">
+          <h3 class="font-bebas text-xl mb-1 uppercase leading-tight">Final Mundial BDM Deluxe</h3>
+          <p class="font-bold mb-2 text-lg text-bdm-red">$15.000.000</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <div class="space-y-2 flex-grow">
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>10.000+ personas</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>20 países</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Global</div>
+          </div>
+        </div>
+        <a href="#contact" class="w-full py-3 text-xs font-bold uppercase tracking-wider text-center text-bdm-red bg-bdm-black border-t border-bdm-red/30 hover:bg-bdm-red hover:text-white transition-colors flex items-center justify-center gap-1">Contáctanos <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA CULTURAL -->
+<section class="py-24 border-t border-bdm-dark">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col lg:flex-row gap-16 items-start">
+      <div class="w-full lg:w-1/3 lg:pt-4">
+        <h2 class="reveal-left font-bebas text-4xl md:text-6xl text-white mb-6 uppercase leading-none">Experiencia <br/><span class="text-bdm-red">Cultural</span></h2>
+        <div class="red-line mb-8"></div>
+        <p class="text-gray-400">BDM es un ecosistema 360° que abarca todas las disciplinas de la cultura Hip Hop y urbana, impulsando no solo competencias, sino toda una industria alrededor del talento.</p>
+      </div>
+      <div class="w-full lg:w-2/3">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <!-- 8 culture tiles -->
+          <div class="value-card reveal-scale aspect-square bg-white/5 border border-bdm-dark flex flex-col items-center justify-center p-4 text-center text-gray-300 cursor-default overflow-hidden">
+            <span class="font-bebas text-lg uppercase mb-2 leading-tight">Rap Freestyle</span>
+            <svg viewBox="0 0 80 100" fill="currentColor" width="64" height="80" style="opacity:0.5"><circle cx="40" cy="12" r="9"/><path d="M28 28 Q40 25 52 28 L55 55 Q50 52 40 53 Q30 52 25 55 Z"/><path d="M52 30 L62 18 L65 22 L55 34 Z"/><ellipse cx="66" cy="15" rx="5" ry="7"/><path d="M28 30 L18 45 L22 46 L32 32 Z"/><path d="M34 53 L30 80 L36 80 L40 62 L44 80 L50 80 L46 53 Z"/></svg>
+          </div>
+          <div class="value-card reveal-scale aspect-square bg-white/5 border border-bdm-dark flex flex-col items-center justify-center p-4 text-center text-gray-300 cursor-default overflow-hidden">
+            <span class="font-bebas text-lg uppercase mb-2">Beatbox</span>
+            <svg viewBox="0 0 80 100" fill="currentColor" width="64" height="80" style="opacity:0.5"><circle cx="40" cy="12" r="9"/><path d="M28 28 Q40 25 52 28 L54 55 Q40 57 26 55 Z"/><path d="M28 32 L18 25 L20 21 L30 28 Z"/><path d="M52 32 L62 25 L60 21 L50 28 Z"/><path d="M12 30 Q8 35 12 40" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8 26 Q2 35 8 44" stroke="currentColor" stroke-width="2" fill="none"/><path d="M34 55 L31 80 L37 80 L40 65 L43 80 L49 80 L46 55 Z"/></svg>
+          </div>
+          <div class="value-card reveal-scale aspect-square bg-white/5 border border-bdm-dark flex flex-col items-center justify-center p-4 text-center text-gray-300 cursor-default overflow-hidden">
+            <span class="font-bebas text-lg uppercase mb-2">Break Dance</span>
+            <svg viewBox="0 0 100 90" fill="currentColor" width="80" height="72" style="opacity:0.5"><circle cx="50" cy="80" r="9"/><path d="M42 70 Q50 67 58 70 L60 48 Q50 45 40 48 Z"/><path d="M56 50 L75 30 L78 34 L60 54 Z"/><path d="M44 50 L25 28 L22 32 L40 54 Z"/><path d="M42 66 L15 60 L15 55 L42 61 Z"/><path d="M58 66 L85 60 L85 55 L58 61 Z"/></svg>
+          </div>
+          <div class="value-card reveal-scale aspect-square bg-white/5 border border-bdm-dark flex flex-col items-center justify-center p-4 text-center text-gray-300 cursor-default overflow-hidden">
+            <span class="font-bebas text-lg uppercase mb-2">Graffiti</span>
+            <svg viewBox="0 0 80 100" fill="currentColor" width="64" height="80" style="opacity:0.5"><circle cx="35" cy="12" r="9"/><path d="M24 28 Q35 24 46 28 L50 52 Q35 55 22 52 Z"/><path d="M46 32 L68 38 L67 43 L45 37 Z"/><rect x="68" y="34" width="8" height="13" rx="2"/><path d="M24 32 L14 46 L18 48 L28 35 Z"/><path d="M32 52 L28 80 L34 80 L36 65 L40 80 L46 80 L44 52 Z"/></svg>
+          </div>
+          <div class="value-card reveal-scale aspect-square bg-white/5 border border-bdm-dark flex flex-col items-center justify-center p-4 text-center text-gray-300 cursor-default overflow-hidden">
+            <span class="font-bebas text-lg uppercase mb-2">DJ</span>
+            <svg viewBox="0 0 90 100" fill="currentColor" width="72" height="80" style="opacity:0.5"><circle cx="45" cy="14" r="9"/><rect x="33" y="9" width="6" height="8" rx="2"/><rect x="51" y="9" width="6" height="8" rx="2"/><path d="M32 30 Q45 27 58 30 L58 52 Q45 55 32 52 Z"/><path d="M32 34 L14 38 L14 43 L32 39 Z"/><path d="M58 34 L76 38 L76 43 L58 39 Z"/><rect x="10" y="44" width="70" height="8" rx="1" opacity="0.6"/><circle cx="28" cy="48" r="6" opacity="0.5"/><circle cx="28" cy="48" r="2"/><circle cx="62" cy="48" r="6" opacity="0.5"/><circle cx="62" cy="48" r="2"/><path d="M38 52 L34 80 L40 80 L45 64 L50 80 L56 80 L52 52 Z"/></svg>
+          </div>
+          <div class="value-card reveal-scale aspect-square bg-white/5 border border-bdm-dark flex flex-col items-center justify-center p-4 text-center text-gray-300 cursor-default overflow-hidden">
+            <span class="font-bebas text-lg uppercase mb-2 leading-tight">Formación artística</span>
+            <svg viewBox="0 0 80 100" fill="currentColor" width="64" height="80" style="opacity:0.5"><circle cx="40" cy="12" r="9"/><path d="M28 28 Q40 25 52 28 L52 55 Q40 57 28 55 Z"/><path d="M52 30 L65 18 L68 22 L55 34 Z"/><path d="M28 34 L18 48 L22 50 L32 36 Z"/><path d="M34 55 L30 80 L36 80 L40 65 L44 80 L50 80 L46 55 Z"/></svg>
+          </div>
+          <div class="value-card reveal-scale aspect-square bg-white/5 border border-bdm-dark flex flex-col items-center justify-center p-4 text-center text-gray-300 cursor-default overflow-hidden">
+            <span class="font-bebas text-lg uppercase mb-2 leading-tight">Producción audiovisual</span>
+            <svg viewBox="0 0 90 100" fill="currentColor" width="72" height="80" style="opacity:0.5"><circle cx="38" cy="12" r="9"/><path d="M26 28 Q38 25 50 28 L50 54 Q38 57 26 54 Z"/><path d="M26 34 L14 30 L14 35 L26 39 Z"/><path d="M50 32 L60 28 L60 33 L50 37 Z"/><rect x="56" y="24" width="22" height="16" rx="2"/><circle cx="67" cy="32" r="6" opacity="0.7"/><path d="M32 54 L28 80 L34 80 L38 65 L42 80 L48 80 L44 54 Z"/></svg>
+          </div>
+          <div class="value-card reveal-scale aspect-square bg-white/5 border border-bdm-dark flex flex-col items-center justify-center p-4 text-center text-gray-300 cursor-default overflow-hidden">
+            <span class="font-bebas text-lg uppercase mb-2 leading-tight">Turismo cultural</span>
+            <svg viewBox="0 0 80 100" fill="currentColor" width="64" height="80" style="opacity:0.5"><circle cx="40" cy="12" r="9"/><ellipse cx="40" cy="5" rx="12" ry="3"/><path d="M28 28 Q40 25 52 28 L52 54 Q40 57 28 54 Z"/><rect x="42" y="26" width="14" height="22" rx="3" opacity="0.8"/><path d="M28 32 L16 28 L16 33 L28 37 Z"/><path d="M34 54 L28 80 L34 80 L40 64 Z"/><path d="M46 54 L52 80 L46 80 L40 64 Z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="reveal font-bebas text-4xl md:text-6xl text-white mb-4 uppercase">Galería de <span class="text-bdm-red">Eventos</span></h2>
+      <div class="flex justify-center gap-4 mb-8">
+        <button onclick="showGallery('fotos')" id="btn-fotos" class="tab-btn active px-6 py-2 uppercase tracking-widest text-sm font-bold transition-all">Fotos</button>
+        <button onclick="showGallery('videos')" id="btn-videos" class="tab-btn inactive px-6 py-2 uppercase tracking-widest text-sm font-bold transition-all">Videos</button>
+      </div>
+    </div>
+    <div id="gallery-fotos">
+      <div class="gallery-carousel-shell">
+        <button id="gallery-carousel-prev" class="gallery-carousel-arrow gallery-carousel-prev" type="button" aria-label="Ver fotografías anteriores">&#10094;</button>
+        <div id="gallery-carousel-track" class="gallery-carousel-track">
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-01.png" aria-label="Ampliar fotografía 1 de BDM">
+          <img src="assets/img/galeria-bdm-01.png" alt="Evento Batalla de Maestros, fotografía 1" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-02.png" aria-label="Ampliar fotografía 2 de BDM">
+          <img src="assets/img/galeria-bdm-02.png" alt="Evento Batalla de Maestros, fotografía 2" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-03.png" aria-label="Ampliar fotografía 3 de BDM">
+          <img src="assets/img/galeria-bdm-03.png" alt="Evento Batalla de Maestros, fotografía 3" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-04.png" aria-label="Ampliar fotografía 4 de BDM">
+          <img src="assets/img/galeria-bdm-04.png" alt="Evento Batalla de Maestros, fotografía 4" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-05.png" aria-label="Ampliar fotografía 5 de BDM">
+          <img src="assets/img/galeria-bdm-05.png" alt="Evento Batalla de Maestros, fotografía 5" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-06.png" aria-label="Ampliar fotografía 6 de BDM">
+          <img src="assets/img/galeria-bdm-06.png" alt="Evento Batalla de Maestros, fotografía 6" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-07.png" aria-label="Ampliar fotografía 7 de BDM">
+          <img src="assets/img/galeria-bdm-07.png" alt="Evento Batalla de Maestros, fotografía 7" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-08.png" aria-label="Ampliar fotografía 8 de BDM">
+          <img src="assets/img/galeria-bdm-08.png" alt="Evento Batalla de Maestros, fotografía 8" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-09.png" aria-label="Ampliar fotografía 9 de BDM">
+          <img src="assets/img/galeria-bdm-09.png" alt="Evento Batalla de Maestros, fotografía 9" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-10.png" aria-label="Ampliar fotografía 10 de BDM">
+          <img src="assets/img/galeria-bdm-10.png" alt="Evento Batalla de Maestros, fotografía 10" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-11.png" aria-label="Ampliar fotografía 11 de BDM">
+          <img src="assets/img/galeria-bdm-11.png" alt="Evento Batalla de Maestros, fotografía 11" loading="lazy">
+        </button>
+        <button class="gallery-photo" type="button" data-gallery-image="assets/img/galeria-bdm-12.png" aria-label="Ampliar fotografía 12 de BDM">
+          <img src="assets/img/galeria-bdm-12.png" alt="Evento Batalla de Maestros, fotografía 12" loading="lazy">
+        </button>
+        </div>
+        <button id="gallery-carousel-next" class="gallery-carousel-arrow gallery-carousel-next" type="button" aria-label="Ver fotografías siguientes">&#10095;</button>
+      </div>
+    </div>
+    <div id="gallery-videos" class="hidden">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto" id="video-grid">
+        <div class="video-card bg-white/5 border border-bdm-dark rounded-xl overflow-hidden group cursor-pointer" data-video="https://www.youtube.com/embed/qs2zq5AGiZE" onclick="openVideo(this.dataset.video)">
+          <div class="aspect-video relative overflow-hidden bg-bdm-dark">
+            <img src="https://img.youtube.com/vi/qs2zq5AGiZE/maxresdefault.jpg" alt="Freestyle BDM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+              <span class="text-white/80 group-hover:text-bdm-red text-5xl">&#9654;</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bebas text-lg text-white uppercase">Freestyle BDM</h4>
+            <p class="text-gray-500 text-xs">Video destacado</p>
+          </div>
+        </div>
+        <div class="video-card bg-white/5 border border-bdm-dark rounded-xl overflow-hidden group cursor-pointer" data-video="https://www.youtube.com/embed/fSb99HO1fIw" onclick="openVideo(this.dataset.video)">
+          <div class="aspect-video relative overflow-hidden bg-bdm-dark">
+            <img src="https://img.youtube.com/vi/fSb99HO1fIw/maxresdefault.jpg" alt="Freestyle BDM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+              <span class="text-white/80 group-hover:text-bdm-red text-5xl">&#9654;</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bebas text-lg text-white uppercase">Freestyle BDM</h4>
+            <p class="text-gray-500 text-xs">Video destacado</p>
+          </div>
+        </div>
+        <div class="video-card bg-white/5 border border-bdm-dark rounded-xl overflow-hidden group cursor-pointer" data-video="https://www.youtube.com/embed/KLP2ET7HX7E" onclick="openVideo(this.dataset.video)">
+          <div class="aspect-video relative overflow-hidden bg-bdm-dark">
+            <img src="https://img.youtube.com/vi/KLP2ET7HX7E/maxresdefault.jpg" alt="Freestyle BDM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+              <span class="text-white/80 group-hover:text-bdm-red text-5xl">&#9654;</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bebas text-lg text-white uppercase">Freestyle BDM</h4>
+            <p class="text-gray-500 text-xs">Video destacado</p>
+          </div>
+        </div>
+        <div class="video-card bg-white/5 border border-bdm-dark rounded-xl overflow-hidden group cursor-pointer" data-video="https://www.youtube.com/embed/4PoBGGvSPK8" onclick="openVideo(this.dataset.video)">
+          <div class="aspect-video relative overflow-hidden bg-bdm-dark">
+            <img src="https://img.youtube.com/vi/4PoBGGvSPK8/maxresdefault.jpg" alt="Freestyle BDM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+              <span class="text-white/80 group-hover:text-bdm-red text-5xl">&#9654;</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bebas text-lg text-white uppercase">Freestyle BDM</h4>
+            <p class="text-gray-500 text-xs">Video destacado</p>
+          </div>
+        </div>
+        <div class="video-card bg-white/5 border border-bdm-dark rounded-xl overflow-hidden group cursor-pointer" data-video="https://www.youtube.com/embed/ntqCzx1y-7s" onclick="openVideo(this.dataset.video)">
+          <div class="aspect-video relative overflow-hidden bg-bdm-dark">
+            <img src="https://img.youtube.com/vi/ntqCzx1y-7s/maxresdefault.jpg" alt="Freestyle BDM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+              <span class="text-white/80 group-hover:text-bdm-red text-5xl">&#9654;</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bebas text-lg text-white uppercase">Freestyle BDM</h4>
+            <p class="text-gray-500 text-xs">Video destacado</p>
+          </div>
+        </div>
+        <div class="video-card bg-white/5 border border-bdm-dark rounded-xl overflow-hidden group cursor-pointer" data-video="https://www.youtube.com/embed/8_0GC8658O0" onclick="openVideo(this.dataset.video)">
+          <div class="aspect-video relative overflow-hidden bg-bdm-dark">
+            <img src="https://img.youtube.com/vi/8_0GC8658O0/maxresdefault.jpg" alt="Freestyle BDM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null;this.src=this.src.replace('maxresdefault','hqdefault')">
+            <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+              <span class="text-white/80 group-hover:text-bdm-red text-5xl">&#9654;</span>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="font-bebas text-lg text-white uppercase">Freestyle BDM</h4>
+            <p class="text-gray-500 text-xs">Video destacado</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="gallery-lightbox" class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotografías" aria-hidden="true">
+      <button class="gallery-close" type="button" aria-label="Cerrar visor">&times;</button>
+      <button class="gallery-prev" type="button" aria-label="Fotografía anterior">&#10094;</button>
+      <img id="gallery-lightbox-image" src="" alt="Fotografía ampliada del evento BDM">
+      <button class="gallery-next" type="button" aria-label="Fotografía siguiente">&#10095;</button>
+      </div>
+  </div>
+</section>
+
+<!-- CONTACT CTA -->
+<section id="contact">
+  <div class="bg-bdm-black py-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-bdm-red/5"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+      <h2 class="reveal font-bebas text-2xl md:text-4xl text-bdm-red mb-4 uppercase">¿Quieres llevar Batalla de Maestros a tu comuna o institución?</h2>
+      <p class="reveal text-bdm-red/70 max-w-xl mx-auto mb-8 text-sm">Organizamos experiencias culturales, competencias y programas de desarrollo artístico con impacto real en las comunidades.</p>
+        <div class="reveal flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact-form" class="bg-bdm-red text-white px-8 py-4 uppercase font-bold tracking-widest text-xs hover:bg-white hover:text-bdm-black transition-colors duration-300">Solicitar Cotización</a>
+        <a href="#contact-form" class="bg-bdm-red text-white px-8 py-4 uppercase font-bold tracking-widest text-xs hover:bg-white hover:text-bdm-black transition-colors duration-300">Contactar Equipo BDM</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="pt-20 pb-10 border-t border-bdm-dark bg-bdm-black">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <!-- Brand -->
+        <div class="bg-white/5 border border-bdm-dark/50 p-6 rounded-lg">
+          <h2 class="font-bebas text-4xl tracking-wider text-bdm-red mb-4">BDM <span class="text-white">MAESTROS</span></h2>
+          <p class="text-white text-sm">La red mundial de freestyle, arte urbano y desarrollo cultural nacida en Chile.</p>
+        </div>
+        <!-- Contacto -->
+        <div id="contact-form" class="bg-white/5 border border-bdm-dark/50 p-6 rounded-lg">
+          <h3 class="font-bebas text-xl text-white mb-6 uppercase tracking-widest">Contacto</h3>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3 text-gray-400 text-sm hover:text-bdm-red transition-colors">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a81c24" stroke-width="2"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+              contacto@bdmfreestyle.com
+            </li>
+            <li class="flex items-center gap-3 text-gray-400 text-sm hover:text-bdm-red transition-colors">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a81c24" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              Santiago, Chile
+            </li>
+          </ul>
+        </div>
+        <!-- Links -->
+        <div class="bg-white/5 border border-bdm-dark/50 p-6 rounded-lg">
+          <h3 class="font-bebas text-xl text-white mb-6 uppercase tracking-widest">Enlaces</h3>
+          <ul class="space-y-3">
+            <li><a href="#home" class="text-gray-400 text-sm hover:text-bdm-red transition-colors">Inicio</a></li>
+            <li><a href="#about" class="text-gray-400 text-sm hover:text-bdm-red transition-colors">Nuestra Historia</a></li>
+            <li><a href="#services" class="text-gray-400 text-sm hover:text-bdm-red transition-colors">Servicios</a></li>
+            <li><a href="#events" class="text-gray-400 text-sm hover:text-bdm-red transition-colors">Eventos</a></li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <div class="bg-white/5 border border-bdm-dark/50 p-6 rounded-lg">
+          <h3 class="font-bebas text-xl text-white mb-6 uppercase tracking-widest">Newsletter</h3>
+          <p class="text-gray-400 text-sm mb-4">Únete a nuestra red para recibir novedades y eventos.</p>
+          <form id="form-newsletter" style="display:flex;flex-direction:column;gap:12px;">
+            
+              
+            <input type="email" id="email-newsletter" placeholder="Tu correo electrónico" required
+              style="background:transparent;border:1px solid #333;color:white;padding:12px 16px;font-size:14px;font-family:Montserrat,sans-serif;outline:none;transition:border-color 0.3s;"
+              onfocus="this.style.borderColor='#a81c24'" onblur="this.style.borderColor='#333'"/>
+            <button type="submit"
+              style="background:#a81c24;color:white;font-family:Montserrat,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:13px;padding:12px;border:none;cursor:pointer;transition:all 0.3s;"
+              onmouseover="this.style.background='#0a0a0a';this.style.color='white'" 
+              onmouseout="this.style.background='#a81c24';this.style.color='white'">
+              Suscribirse
+            </button>
+            
+    
+            
+          </form>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-500 text-xs mb-4 md:mb-0">© 2026 Batalla de Maestros (BDM). Todos los derechos reservados.</p>
+        <a href="#" class="text-gray-500 text-xs hover:text-bdm-red transition-colors">bdmfreestyle.com</a>
+      </div>
+    </div>
+  </footer>
+</section>
+<div id="video-modal" onclick="closeVideo(event)">
+  <div class="relative w-full max-w-4xl mx-4" onclick="event.stopPropagation()">
+    <button onclick="closeVideo()" style="position:absolute;top:-2.5rem;right:0;color:white;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;background:none;border:none;cursor:pointer;" onmouseover="this.style.color='#a81c24'" onmouseout="this.style.color='white'">Cerrar</button>
+    <div style="position:relative;padding-bottom:56.25%;height:0;">
+      <iframe id="video-iframe" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:0.5rem;" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+<script src="assets/js/main.js" defer></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos comprimidos
+*.zip
+*.tar.gz
+*.rar
+
+# Datos dinámicos y sensibles
+data/*.json
+!data/interactions.json.example
+
+# Asegurar seguimiento de archivos de seguridad y configuración
+!data/.htaccess
