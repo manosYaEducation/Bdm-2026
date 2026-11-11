@@ -58,6 +58,23 @@ function showTab(tab) {
   document.getElementById('btn-servicios').className = 'tab-btn px-6 py-2 uppercase tracking-widest text-sm font-bold transition-all duration-300 ' + (tab === 'servicios' ? 'active' : 'inactive');
 }
 
+// Featured self-hosted video
+const teoremaVideo = document.getElementById('teorema-video');
+const teoremaPlay = document.getElementById('teorema-play');
+const teoremaEnded = document.getElementById('teorema-ended');
+if (teoremaVideo && teoremaPlay && teoremaEnded) {
+  teoremaPlay.addEventListener('click', () => {
+    if (!teoremaVideo.src) {
+      teoremaVideo.src = teoremaVideo.dataset.src;
+      teoremaVideo.load();
+    }
+    teoremaPlay.classList.add('is-hidden');
+    teoremaVideo.play().catch(error => console.error('No se pudo reproducir el video:', error));
+  });
+  teoremaVideo.addEventListener('play', () => teoremaPlay.classList.add('is-hidden'));
+  teoremaVideo.addEventListener('ended', () => teoremaEnded.classList.remove('hidden'));
+}
+
 // Video modal
 function openVideo(url) {
   document.getElementById('video-iframe').src = url + '?autoplay=1';
@@ -219,6 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return await response.json();
         } catch (error) {
             console.error('Error:', error);
+            return { status: 'error', message: 'No se pudo completar la suscripción. Intenta nuevamente.' };
         }
     }
 
@@ -229,19 +247,27 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); // Evita que la página se recargue
             
             const emailValue = document.querySelector('#email-newsletter').value;
+            const websiteValue = newsletterForm.querySelector('[name="website"]').value;
+            const message = document.querySelector('#newsletter-message');
             
             const resultado = await logInteraction({
                 tipo: 'lead',
                 email: emailValue,
+                website: websiteValue,
                 seccion: 'newsletter'
             });
 
             if (resultado && resultado.status === 'success') {
-                alert('¡Gracias por suscribirte!');
+                message.textContent = '¡Gracias por suscribirte!';
+                message.style.color = '#7ee787';
                 newsletterForm.reset();
+            } else if (resultado && resultado.message === 'Este correo ya fue enviado para suscribirse') {
+                message.textContent = resultado.message;
+                message.style.color = '#ffcc66';
+            } else {
+                message.textContent = resultado?.message || 'No se pudo completar la suscripción. Intenta nuevamente.';
+                message.style.color = '#ff8b8b';
             }
         });
     }
 });
-
-

@@ -55,6 +55,7 @@ tailwind.config = {
       <a href="#global-impact" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Impacto</a>
       <a href="#events" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Eventos</a>
       <a href="#gallery" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Galería</a>
+      <a href="tienda.html" class="text-xs uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Explorar tienda</a>
       <a href="#contact" class="px-5 py-2 border border-white text-white hover:bg-white hover:text-bdm-black transition-colors uppercase text-xs font-semibold">Contacto</a>
     </nav>
     <button id="menu-toggle" class="md:hidden text-white">
@@ -69,6 +70,7 @@ tailwind.config = {
     <a href="#global-impact" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Impacto</a>
     <a href="#events" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Eventos</a>
     <a href="#gallery" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Galería</a>
+    <a href="tienda.html" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-white hover:text-bdm-red transition-colors">Explorar tienda</a>
     <a href="#contact" onclick="closeMobileMenu()" class="text-sm uppercase tracking-widest font-semibold text-bdm-red">Contacto</a>
   </div>
 </header>
@@ -96,7 +98,7 @@ tailwind.config = {
       BATALLA DE<br/><span class="text-bdm-red">MAESTROS</span>
     </h1>
     <p class="reveal text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 bg-black/30 backdrop-blur-sm p-4 rounded-lg">
-      Más de 14 años impulsando talentos, conectando comunidades y llevando el freestyle desde los barrios hasta escenarios internacionales.
+      Más de 16 años impulsando talentos, conectando comunidades y llevando el freestyle desde los barrios hasta escenarios internacionales.
     </p>
     <div class="reveal flex flex-col sm:flex-row gap-4 justify-center">
       <a href="#contact" class="bg-bdm-red text-white px-8 py-4 uppercase font-bold tracking-widest hover:bg-white hover:text-bdm-black transition-colors duration-300 text-sm">Solicitar Información</a>
@@ -108,6 +110,47 @@ tailwind.config = {
   <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
     <span class="text-xs uppercase tracking-widest text-gray-400">Scroll</span>
     <div class="w-px h-12 bg-gradient-to-b from-bdm-red to-transparent"></div>
+  </div>
+</section>
+
+<!-- FEATURED VIDEO -->
+<section id="featured-video" class="py-24 relative border-t border-bdm-dark">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+      <div class="w-full lg:w-1/2 reveal-left">
+        <div class="featured-video-frame relative">
+          <div class="absolute inset-0 bg-bdm-red translate-x-4 translate-y-4"></div>
+          <div class="featured-video-player relative z-10 aspect-video overflow-hidden bg-bdm-dark">
+            <video
+              id="teorema-video"
+              class="w-full h-full object-cover"
+              poster="assets/img/portada-video.png"
+              preload="none"
+              playsinline
+              controls
+              data-src="assets/video/teorema_agradeciendo.mp4"
+              aria-label="Teorema agradeciendo a BDM"
+            >
+              <track kind="subtitles" srclang="es" src="assets/video/teorema-agradeciendo.vtt" label="Español" default>
+            </video>
+            <button id="teorema-play" class="featured-video-play absolute inset-0 flex items-center justify-center bg-black/35 text-white transition-colors hover:bg-black/15" type="button" aria-label="Reproducir video">
+              <span class="flex items-center justify-center w-16 h-16 rounded-full bg-bdm-red text-2xl">&#9654;</span>
+            </button>
+            <div id="teorema-ended" class="featured-video-ended absolute inset-0 hidden flex-col items-center justify-center gap-5 bg-black/75 text-center">
+              <p class="font-bebas text-3xl text-white uppercase">¿Quieres ser parte?</p>
+              <a href="#contact-form" class="bg-bdm-red text-white px-6 py-3 uppercase font-bold tracking-widest text-xs hover:bg-white hover:text-bdm-black transition-colors">Solicitar información</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/2 reveal-right">
+        <h2 class="font-bebas text-5xl md:text-7xl text-white mb-6 uppercase">De Cañete al <span class="text-bdm-red">mundo</span></h2>
+        <div class="red-line mb-8"></div>
+        <p class="text-gray-400 text-lg mb-8">Una voz, una batalla y una historia que cruza fronteras. Teorema comparte su mensaje y agradece a la comunidad que hace posible BDM.</p>
+        <a href="https://www.youtube.com/watch?v=fSb99HO1fIw" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-white text-white px-6 py-3 uppercase font-bold tracking-widest text-xs hover:bg-white hover:text-bdm-black transition-colors">Ver la batalla completa <span aria-hidden="true">&#8599;</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -370,19 +413,19 @@ tailwind.config = {
     <!-- Global stats -->
     <div id="impact-global" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
       <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
-        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="500">0</span><span class="font-bebas text-2xl text-bdm-red">+</span>
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="250">0</span><span class="font-bebas text-2xl text-bdm-red">+</span>
         <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Eventos Reg.</p>
       </div>
       <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
-        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="150">0</span><span class="font-bebas text-2xl text-bdm-red">+</span>
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="500">0</span><span class="font-bebas text-2xl text-bdm-red">+</span>
         <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Ciudades</p>
       </div>
       <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
-        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="50">0</span><span class="font-bebas text-2xl text-bdm-red">k</span>
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="100">0</span><span class="font-bebas text-2xl text-bdm-red">k</span>
         <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Participantes</p>
       </div>
       <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
-        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="14">0</span>
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="27">0</span>
         <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Campeones Nac.</p>
       </div>
       <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
@@ -390,11 +433,11 @@ tailwind.config = {
         <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Continentes</p>
       </div>
       <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
-        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="14">0</span>
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="1">0</span>
         <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Final Mundial</p>
       </div>
       <div class="reveal flex flex-col items-center p-4 bg-white/5 border border-bdm-dark rounded-lg">
-        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="200">0</span><span class="font-bebas text-2xl text-bdm-red">M</span>
+        <span class="stat-num font-bebas text-3xl md:text-4xl text-bdm-red mb-1" data-target="151">0</span><span class="font-bebas text-2xl text-bdm-red">M</span>
         <p class="text-gray-400 uppercase tracking-widest text-xs font-semibold text-center mt-1">Millones Views</p>
       </div>
     </div>
@@ -435,15 +478,15 @@ tailwind.config = {
         <div class="flex flex-col p-5 flex-grow">
           <h3 class="font-bebas text-xl mb-1 uppercase">Zonal Beatbox</h3>
           <p class="font-bold mb-2 text-lg text-bdm-red">$3.000.000</p>
-          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país y región</p>
           <div class="space-y-2 flex-grow">
             <div class="flex items-center gap-2 text-xs text-gray-300">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>
-              300 – 500 personas
+              +50 personas
             </div>
             <div class="flex items-center gap-2 text-xs text-gray-300">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              16 competidores
+              10 competidores
             </div>
             <div class="flex items-center gap-2 text-xs text-gray-300">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
@@ -461,10 +504,10 @@ tailwind.config = {
         <div class="flex flex-col p-5 flex-grow">
           <h3 class="font-bebas text-xl mb-1 uppercase leading-tight">Selectivo Zonal Freestyle</h3>
           <p class="font-bold mb-2 text-lg text-bdm-red">$5.000.000</p>
-          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país y región</p>
           <div class="space-y-2 flex-grow">
-            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>500 – 1.000 personas</div>
-            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>32 competidores</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>+100 personas</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>20 competidores</div>
             <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Local / Zonal</div>
           </div>
         </div>
@@ -476,10 +519,10 @@ tailwind.config = {
         <div class="flex flex-col p-5 flex-grow">
           <h3 class="font-bebas text-xl mb-1 uppercase">Final Regional</h3>
           <p class="font-bold mb-2 text-lg text-bdm-red">$7.000.000</p>
-          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país y región</p>
           <div class="space-y-2 flex-grow">
-            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>1.000 – 2.000 personas</div>
-            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>16 campeones zonales</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>+200 personas</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>32 competidores</div>
             <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Regional</div>
           </div>
         </div>
@@ -491,9 +534,9 @@ tailwind.config = {
         <div class="flex flex-col p-5 flex-grow">
           <h3 class="font-bebas text-xl mb-1 uppercase leading-tight">Final Nacional BDM Gold</h3>
           <p class="font-bold mb-2 text-lg text-bdm-red">$9.000.000</p>
-          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país y región</p>
           <div class="space-y-2 flex-grow">
-            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>3.000 – 5.000 personas</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>+300 personas</div>
             <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>16 campeones regionales</div>
             <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Nacional + Intl.</div>
           </div>
@@ -506,9 +549,9 @@ tailwind.config = {
         <div class="flex flex-col p-5 flex-grow">
           <h3 class="font-bebas text-xl mb-1 uppercase leading-tight">Final Mundial BDM Deluxe</h3>
           <p class="font-bold mb-2 text-lg text-bdm-red">$15.000.000</p>
-          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país</p>
+          <p class="text-xs text-gray-500 mb-4 italic">* Conversión ajustable por país y región</p>
           <div class="space-y-2 flex-grow">
-            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>10.000+ personas</div>
+            <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></svg>+2.000 personas</div>
             <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>20 países</div>
             <div class="flex items-center gap-2 text-xs text-gray-300"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>Global</div>
           </div>
@@ -737,11 +780,17 @@ tailwind.config = {
           <ul class="space-y-4">
             <li class="flex items-center gap-3 text-gray-400 text-sm hover:text-bdm-red transition-colors">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a81c24" stroke-width="2"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
-              contacto@bdmfreestyle.com
+              <a href="mailto:ceo@batallademaestros.cl">ceo@batallademaestros.cl</a>
             </li>
             <li class="flex items-center gap-3 text-gray-400 text-sm hover:text-bdm-red transition-colors">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#a81c24" stroke-width="2"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
               Santiago, Chile
+            </li>
+            <li class="flex items-center gap-3 text-gray-400 text-sm hover:text-bdm-red transition-colors">
+              <a href="https://www.instagram.com/bdm_internacional?srtk=czNwbWduZXJhNjl6" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </li>
+            <li class="flex items-center gap-3 text-gray-400 text-sm hover:text-bdm-red transition-colors">
+              <a href="https://m.youtube.com/@BatalladeMaestros" target="_blank" rel="noopener noreferrer">YouTube</a>
             </li>
           </ul>
         </div>
@@ -765,12 +814,15 @@ tailwind.config = {
             <input type="email" id="email-newsletter" placeholder="Tu correo electrónico" required
               style="background:transparent;border:1px solid #333;color:white;padding:12px 16px;font-size:14px;font-family:Montserrat,sans-serif;outline:none;transition:border-color 0.3s;"
               onfocus="this.style.borderColor='#a81c24'" onblur="this.style.borderColor='#333'"/>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"
+              style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;"/>
             <button type="submit"
               style="background:#a81c24;color:white;font-family:Montserrat,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;font-size:13px;padding:12px;border:none;cursor:pointer;transition:all 0.3s;"
               onmouseover="this.style.background='#0a0a0a';this.style.color='white'" 
               onmouseout="this.style.background='#a81c24';this.style.color='white'">
               Suscribirse
             </button>
+            <p id="newsletter-message" role="status" aria-live="polite" style="margin:0;font-size:13px;"></p>
             
     
             

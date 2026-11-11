@@ -14,3 +14,4 @@ data/*.json
 
 # Asegurar seguimiento de archivos de seguridad y configuración
 !data/.htaccess
+

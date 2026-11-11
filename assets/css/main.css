@@ -121,6 +121,14 @@
   /* Red accent line */
   .red-line { width: 80px; height: 4px; background: #a81c24; }
 
+  /* Featured video */
+  .featured-video-frame { max-width: 640px; margin: 0 auto; }
+  .featured-video-player video { display: block; }
+  .featured-video-play { cursor: pointer; }
+  .featured-video-play.is-hidden { display: none; }
+  .featured-video-ended { display: flex; }
+  .featured-video-ended.hidden { display: none; }
+
   /* Video modal - not relying on Tailwind CDN for display:flex */
   #video-modal { display: none; position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.9); align-items: center; justify-content: center; }
   #video-modal.modal-open { display: flex; }
