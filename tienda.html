@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tienda BDM | Batalla de Maestros</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root { --red: #a81c24; --black: #0a0a0a; --white: #f5f5f5; --gray: #242424; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    background: linear-gradient(rgba(10,10,10,.72), rgba(10,10,10,.88)), url('assets/img/BackGround.png') center top / cover fixed;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+  }
+  .font-bebas { font-family: 'Bebas Neue', cursive; }
+  .store-header { display: flex; align-items: center; justify-content: space-between; max-width: 1180px; margin: 0 auto; padding: 2rem 1.5rem; }
+  .brand { color: var(--white); font-size: 2rem; letter-spacing: .08em; text-decoration: none; }
+  .brand span { color: var(--red); }
+  .back-link { color: #ccc; font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; }
+  .back-link:hover { color: var(--red); }
+  main { max-width: 1180px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+  .intro { margin-bottom: 3rem; text-align: center; }
+  .intro h1 { font-size: clamp(3.5rem, 9vw, 6rem); letter-spacing: .05em; line-height: .95; }
+  .intro h1 span { color: var(--red); }
+  .intro p { color: #bdbdbd; margin: 1.25rem auto 0; max-width: 600px; line-height: 1.7; }
+  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .product-card { background: rgba(255,255,255,.06); border: 1px solid var(--gray); overflow: hidden; transition: border-color .25s ease, transform .25s ease; }
+  .product-card:hover { border-color: var(--red); transform: translateY(-4px); }
+  .product-card img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .product-info { padding: 1.25rem; }
+  .product-info h2 { font-size: 1.5rem; letter-spacing: .04em; }
+  .product-info p { color: #aaa; font-size: .8rem; line-height: 1.5; margin: .5rem 0 1.25rem; }
+  .contact-button { background: var(--red); color: var(--white); display: block; font-size: .75rem; font-weight: 700; letter-spacing: .1em; padding: .85rem 1rem; text-align: center; text-decoration: none; text-transform: uppercase; }
+  .contact-button:hover { background: var(--white); color: var(--black); }
+  .store-footer { color: #888; font-size: .75rem; padding-top: 3rem; text-align: center; }
+  @media (max-width: 760px) {
+    .store-header { padding-top: 1.25rem; }
+    main { padding-top: 2rem; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  }
+  @media (max-width: 480px) {
+    .brand { font-size: 1.6rem; }
+    .back-link { font-size: .65rem; }
+    .product-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="store-header">
+  <a class="brand font-bebas" href="index.html">BDM <span>MAESTROS</span></a>
+  <a class="back-link" href="index.html">Volver al inicio</a>
+</header>
+
+<main>
+  <section class="intro">
+    <h1 class="font-bebas">Explorar <span>tienda</span></h1>
+    <p>Conoce algunas prendas BDM. Para consultar disponibilidad, tallas y despacho, escríbenos directamente por WhatsApp.</p>
+  </section>
+
+  <section class="product-grid" aria-label="Galería de prendas BDM">
+    <article class="product-card">
+      <img src="assets/img/tienda-01.jpg" alt="Polerón BDM color azul marino" loading="lazy">
+      <div class="product-info">
+        <h2 class="font-bebas">Polerón BDM Skull</h2>
+        <p>Diseño clásico BDM en azul marino.</p>
+        <a class="contact-button" href="https://wa.me/56912345678?text=Hola%2C%20quiero%20consultar%20por%20el%20Poler%C3%B3n%20BDM%20Skull" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="assets/img/tienda-02.jpg" alt="Polera BDM blanca" loading="lazy">
+      <div class="product-info">
+        <h2 class="font-bebas">Polera BDM Blanca</h2>
+        <p>Estilo BDM para acompañarte en cada evento.</p>
+        <a class="contact-button" href="https://wa.me/56912345678?text=Hola%2C%20quiero%20consultar%20por%20la%20Polera%20BDM%20Blanca" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="assets/img/tienda-03.jpg" alt="Polera BDM rosada" loading="lazy">
+      <div class="product-info">
+        <h2 class="font-bebas">Polera BDM Rosada</h2>
+        <p>Una edición colorida con identidad BDM.</p>
+        <a class="contact-button" href="https://wa.me/56912345678?text=Hola%2C%20quiero%20consultar%20por%20la%20Polera%20BDM%20Rosada" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="assets/img/tienda-04.jpg" alt="Polera BDM turquesa" loading="lazy">
+      <div class="product-info">
+        <h2 class="font-bebas">Polera BDM Turquesa</h2>
+        <p>Diseño Skull BDM en color turquesa.</p>
+        <a class="contact-button" href="https://wa.me/56912345678?text=Hola%2C%20quiero%20consultar%20por%20la%20Polera%20BDM%20Turquesa" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="assets/img/tienda-05.jpg" alt="Polera BDM negra" loading="lazy">
+      <div class="product-info">
+        <h2 class="font-bebas">Polera BDM Negra</h2>
+        <p>Un básico urbano con gráfica BDM.</p>
+        <a class="contact-button" href="https://wa.me/56912345678?text=Hola%2C%20quiero%20consultar%20por%20la%20Polera%20BDM%20Negra" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+      </div>
+    </article>
+    <article class="product-card">
+      <img src="assets/img/tienda-06.jpg" alt="Poleras BDM en pareja" loading="lazy">
+      <div class="product-info">
+        <h2 class="font-bebas">Colección BDM</h2>
+        <p>Explora nuestros diseños y pregunta por disponibilidad.</p>
+        <a class="contact-button" href="https://wa.me/56912345678?text=Hola%2C%20quiero%20consultar%20por%20la%20Colecci%C3%B3n%20BDM" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+      </div>
+    </article>
+  </section>
+
+</main>
+</body>
+</html>
