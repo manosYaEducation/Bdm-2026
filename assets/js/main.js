@@ -88,6 +88,138 @@ function closeVideo(e) {
   document.body.style.overflow = '';
 }
 
+// Event details modal
+const eventDetails = {
+  'zonal-beatbox': {
+    title: 'Zonal de Beatbox',
+    subtitle: 'Torneo Beat Brothers (Liga Nacional de Beatbox)',
+    logo: 'assets/img/beatbrother-logo.png',
+    accent: '#aaa',
+    points: [
+      'Beatbox es el arte de hacer música con el cuerpo, y principalmente con la voz.',
+      '9 fechas mensuales en un año.',
+      'Jueces son reconocidos beatboxers y músicos de relevancia nacional.',
+      'Shows de elementos Hip Hop, como break dance; rap y graffiti.',
+      '+100 personas como público.',
+      '10 competidores aprox. por fecha.',
+      'Surge campeón de la fecha, seleccionado a final nacional anual.',
+      '1 final nacional anual.'
+    ]
+  },
+  'selectivo-zonal': {
+    title: 'Selectivo Zonal de Rap Freestyle',
+    subtitle: 'Inicio de circuito mundial BDM. Inscripción abierta.',
+    logo: 'assets/img/bdm-logo.png',
+    accent: '#a81c24',
+    points: [
+      'Rap es ritmo y poesía (rhythm and poetry).',
+      '4 selectivos zonales por región.',
+      'Podio seleccionado y becado para la final regional.',
+      'Shows de elementos Hip Hop, como break dance; rap y graffiti.',
+      '+100 personas como público.',
+      '20 competidores aprox. por fecha.',
+      'Surge campeón de la fecha, seleccionado a final regional.',
+      '4 comunas por región.'
+    ]
+  },
+  'final-regional': {
+    title: 'Final Regional de Rap Freestyle',
+    subtitle: '1 final regional por circuito (1,5 años)',
+    logo: 'assets/img/bdm-logo.png',
+    accent: '#a81c24',
+    points: [
+      'Rap es ritmo y poesía (rhythm and poetry).',
+      'Freestyle es improvisación libre. Batalla temáticas.',
+      '1 final regional en cada región de Chile por cada ciclo (1,5 años).',
+      'Shows de elementos Hip Hop, como DJ; beatbox; break dance; rap; graffiti; estilo callejero.',
+      '+200 personas como público.',
+      '32 competidores. 16 seleccionados de selectivos zonales previos.',
+      'Incluye selectivo zonal última oportunidad regional.',
+      'Surge campeón regional.',
+      'Campeón representa a su región en la final regional. Viaje becado.'
+    ]
+  },
+  'final-nacional-gold': {
+    title: 'Final Nacional de Rap Freestyle',
+    subtitle: 'Final Nacional de Chile (Circuito 2025-2026)',
+    logo: 'assets/img/bdm-logo-gold.png',
+    accent: '#d99b2b',
+    points: [
+      'Rap es ritmo y poesía (rhythm and poetry).',
+      'Freestyle es improvisación libre. Batalla temáticas.',
+      '1 final nacional de Chile por cada ciclo (1,5 años).',
+      'Shows Hip Hop: DJ; beatbox; break dance; rap; graffiti. Nivel nacional.',
+      '+300 personas como público.',
+      '18 competidores (16 campeones regionales y podio anterior).',
+      'Incluye selectivo última oportunidad nacional.',
+      'Surge campeón nacional.',
+      'Campeón representa al país en la final mundial. Viaje becado.',
+      'Evento dura un fin de semana.',
+      'Clases; filmaciones; cyphers; turismo; contenido audiovisual.'
+    ]
+  },
+  'final-mundial-deluxe': {
+    title: 'Final Mundial BDM Deluxe',
+    subtitle: 'Final del circuito mundial 2025-2026',
+    logo: 'assets/img/bdm-logo-platinium.png',
+    accent: '#d8dce2',
+    points: [
+      'Rap es ritmo y poesía (rhythm and poetry).',
+      'Freestyle es improvisación libre. Batalla temáticas.',
+      'Gran final mundial de circuito.',
+      'Shows Hip Hop: DJ; beatbox; break dance; rap; graffiti. Nivel nacional.',
+      '+2.000 personas como público.',
+      '26 campeones nacionales de 4 continentes.',
+      'Evento dura un fin de semana.',
+      'Clases; filmaciones; cyphers; turismo; contenido audiovisual.',
+      'Surge campeón mundial BDM.',
+      'Campeones mundiales: Aczino; Teorema; Chuty; Les3; Joqker; Filósofo MC.'
+    ]
+  }
+};
+
+const eventModal = document.getElementById('event-modal');
+const eventModalTitle = document.getElementById('event-modal-title');
+const eventModalSubtitle = document.getElementById('event-modal-subtitle');
+const eventModalLogo = document.getElementById('event-modal-logo');
+const eventModalPoints = document.getElementById('event-modal-points');
+const eventModalFooter = document.getElementById('event-modal-footer');
+const eventModalWhatsapp = document.getElementById('event-modal-whatsapp');
+let activeEventTrigger = null;
+
+function openEventModal(eventId, trigger) {
+  const event = eventDetails[eventId];
+  if (!event || !eventModal) return;
+  activeEventTrigger = trigger;
+  eventModalTitle.textContent = event.title;
+  eventModalSubtitle.textContent = event.subtitle;
+  eventModalLogo.src = event.logo;
+  eventModalLogo.alt = `Logo ${event.title}`;
+  eventModal.style.setProperty('--event-accent', event.accent);
+  eventModalPoints.innerHTML = event.points.map(point => `<li>${point}</li>`).join('');
+  eventModalFooter.textContent = 'En todos los casos, cliente pone a disposición espacios, baño y escenario.';
+  eventModalWhatsapp.href = `https://wa.me/56912345678?text=${encodeURIComponent(`Hola, quiero cotizar el evento ${event.title}`)}`;
+  eventModal.classList.add('open');
+  eventModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeEventModal() {
+  if (!eventModal) return;
+  eventModal.classList.remove('open');
+  if (activeEventTrigger) activeEventTrigger.focus();
+  eventModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  activeEventTrigger = null;
+}
+
+document.querySelectorAll('.event-details-button').forEach(button => {
+  button.addEventListener('click', () => openEventModal(button.dataset.event, button));
+});
+document.getElementById('event-modal-close')?.addEventListener('click', closeEventModal);
+eventModal?.addEventListener('click', event => { if (event.target === eventModal) closeEventModal(); });
+document.addEventListener('keydown', event => { if (event.key === 'Escape' && eventModal?.classList.contains('open')) closeEventModal(); });
+
 // Tabs: gallery
 function showGallery(type) {
   document.getElementById('gallery-fotos').classList.toggle('hidden', type !== 'fotos');
